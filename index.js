@@ -3,21 +3,27 @@ var moment = require('moment');
 var meridiemRegEx = new RegExp('(a{1,2}|p)\.?m{1}?\.?', 'i');
 var defaultFormat = 'YYYY';
 
+function getFilter(dateString) {
+    if (arguments.length === 1) {
+        // getFilter('March 1st')
+        return moment(dateString).format(defaultFormat);
+    } else if (arguments.length === 2 && typeof arguments[1] === 'boolean') {
+        // getFilter('March 1st', true)
+        return moment(dateString).format(defaultFormat).replace(meridiemRegEx, "$1.m.");
+    } else if (arguments.length === 2) {
+        // getFilter('March 1st', 'YYYYMMDD')
+        var format = arguments[1];
 
-function getFilter(format) {
-    format = format || defaultFormat;
-    return function(str, format, meridiem) {
-        if (str !== undefined) {
-            if (!meridiem) {
-                return moment(str).format(format);
-            } else {
-                return moment(str).format(format).replace(meridiemRegEx, "$1.m.");
-            }
-        }
-    };
+        return moment(dateString).format(format);
+    } else {
+        // getFilter('March 1st', 'MM-DD-YYYY', true)
+        var format = arguments[1];
+
+        return moment(dateString).format(format).replace(meridiemRegEx, "$1.m.");
+    }
 }
 
-module.exports = getFilter();
+module.exports.getFilter = getFilter;
 
 /**
  * Set user-specified default format for date
