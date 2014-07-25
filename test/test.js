@@ -1,6 +1,6 @@
 var should = require('chai').should();
 var nunjucksdate = require('../index');
-var getFilter = nunjucksdate.getFilter;
+var getFilter = nunjucksdate;
 var setDefaultFormat = nunjucksdate.setDefaultFormat;
 
 describe('#getFilter', function() {

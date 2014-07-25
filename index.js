@@ -23,7 +23,7 @@ function getFilter(dateString) {
     }
 }
 
-module.exports.getFilter = getFilter;
+module.exports = getFilter;
 
 /**
  * Set user-specified default format for date
