@@ -37,5 +37,5 @@ module.exports.setDefaultFormat = function(format) {
  * Add filter to nunjucks environment
  */
 module.exports.install = function(env, customName) {
-    env.addFilter(customName || 'date', getFilter());
+    env.addFilter(customName || 'date', getFilter);
 };
