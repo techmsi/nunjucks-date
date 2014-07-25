@@ -16,14 +16,24 @@ npm install nunjucks-date --save
 var nunjucksDate = require('nunjucks-date');
 
 // Define a custom default date format. Any valid format works.
-// The date format defaults to "LLLL"
+// The date format defaults to "YYYY"
 // http://momentjs.com/docs/#/displaying/format/
 nunjucksDate.setDefaultFormat('MMMM Do YYYY, h:mm:ss a');
 
 // Initialize your Nunjucks enironment
 var env = new nunjucks.Environment();
+```
+
+### Using default name : 'date'
+```js
 // Pass the environment to `install()`
 nunjucksDate.install(env);
+```
+
+### Using custom name
+```js
+// Pass the environment & a custom filter name
+nunjucksDate.install(env, 'yourFilterName');
 ```
 
 The above is eqivalent to
