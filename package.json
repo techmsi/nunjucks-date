@@ -4,7 +4,8 @@
   "description": "Plugin for nunjucks of momentjs format date",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "coverage": "istanbul cover _mocha test --recursive -- -u exports -R spec && open coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/techmsi/nunjucks-date",
   "devDependencies": {
     "chai": "^1.9.1",
+    "istanbul": "^0.3.0",
     "mocha": "^1.21.0",
     "nunjucks": "^1.0.5"
   },
