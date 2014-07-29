@@ -1,7 +1,15 @@
 var should = require('chai').should();
+var expect = require('chai').expect;
 var nunjucksdate = require('../index');
 var getFilter = nunjucksdate;
 var dateStringTest = 'Dec 25, 1995';
+
+// Nunjucks environment
+var nunjucks = require('nunjucks');
+var env = new nunjucks.Environment();
+var renderNunjucks = function(filter) {
+    return env.renderString('{{ myDate| '+ ((filter) ? filter : 'date') +' }}', { "myDate": dateStringTest });
+};
 
 describe('#getFilter - 1st case - specified string.\n Uses default date format.', function() {
   it('converts  ' + dateStringTest + '  to 1995', function() {
@@ -39,7 +47,16 @@ describe('#setDefaultFormat', function() {
 });
 
 describe('#install', function() {
-  it('installs this plugin', function() {
-    //TODO: implement test for installing filter in nunjucks environment
+  it('installs this plugin using default filter name of "date"', function() {
+    nunjucksdate.install(env);
+    console.log("\t The result is", renderNunjucks());
+    expect(renderNunjucks()).to.be.a('string').and.equal('December 25th 1995, 12:00:00 am');
+  });
+
+  it('installs this plugin using custom filter name', function() {
+    var filterName = 'customDate';
+    nunjucksdate.install(env, filterName);
+    console.log("\t The result is", renderNunjucks(filterName));
+    expect(renderNunjucks(filterName)).to.be.a('string').and.equal('December 25th 1995, 12:00:00 am');
   });
 });
