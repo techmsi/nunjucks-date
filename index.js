@@ -1,5 +1,6 @@
 var moment = require('moment');
 
+// capture the a or the p in the meridiem
 var meridiemRegEx = new RegExp('(a{1,2}|p)\.?m{1}?\.?', 'i');
 var defaultFormat = 'YYYY';
 
