@@ -1,6 +1,6 @@
 {
   "name": "nunjucks-date",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Plugin for nunjucks of momentjs format date",
   "main": "index.js",
   "scripts": {
