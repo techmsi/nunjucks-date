@@ -1,9 +1,12 @@
 # nunjucks-date
 
 Plugin for nunjucks of momentjs' format date
+
 [![Build Status](https://travis-ci.org/techmsi/nunjucks-date.svg?branch=master)](https://travis-ci.org/techmsi/nunjucks-date)
 
 [![Code Climate](https://codeclimate.com/github/techmsi/nunjucks-date/badges/gpa.svg)](https://codeclimate.com/github/techmsi/nunjucks-date)
+
+[![Test Coverage](https://codeclimate.com/github/techmsi/nunjucks-date/badges/coverage.svg)](https://codeclimate.com/github/techmsi/nunjucks-date)
 
 ## Installation
 
