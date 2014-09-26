@@ -9,4 +9,4 @@ script:
 notifications:
   email: false
 after_script:
-  - cat lcov.info | codeclimate
+  - cat lcov.info | ./node_modules/.bin/codeclimate
