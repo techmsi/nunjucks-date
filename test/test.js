@@ -2,7 +2,7 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var nunjucksdate = require('../index');
 var getFilter = nunjucksdate;
-var dateStringTest = 'Dec 25, 1995';
+var dateStringTest = '1995-12-25';
 
 // Nunjucks environment
 var nunjucks = require('nunjucks');
