@@ -5,7 +5,7 @@ language: node_js
 node_js:
   - "0.10"
 script:
-  - "npm test--coverage"
+  - "npm test --coverage"
 notifications:
   email: false
 after_script:
