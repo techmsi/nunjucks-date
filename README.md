@@ -51,6 +51,14 @@ env.addFilter('date', require('nunjucks-date'));
 npm test
 ```
 
+```bash
+npm test --coverage
+```
+
+```bash
+open coverage/lcov-report/index.html
+```
+
 ## Contributing
 
 Contributions are welcome. Please file issues with any problems that you experience. Pull requests are welcome.
