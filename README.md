@@ -1,5 +1,7 @@
 # nunjucks-date
 
+[![NPM version](https://badge.fury.io/js/nunjucks-date.svg)](http://badge.fury.io/js/nunjucks-date)
+
 Plugin for nunjucks of momentjs' format date
 
 [![Build Status](https://travis-ci.org/techmsi/nunjucks-date.svg?branch=master)](https://travis-ci.org/techmsi/nunjucks-date)
