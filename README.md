@@ -2,6 +2,8 @@
 
 Plugin for nunjucks of momentjs' format date
 
+[![Code Climate](https://codeclimate.com/github/techmsi/nunjucks-date/badges/gpa.svg)](https://codeclimate.com/github/techmsi/nunjucks-date)
+
 ## Installation
 
 ```bash
