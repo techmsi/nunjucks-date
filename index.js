@@ -7,20 +7,20 @@ var defaultFormat = 'YYYY';
 function getFilter(dateString) {
     if (arguments.length === 1) {
         // getFilter('March 1st')
-        return moment(dateString).format(defaultFormat);
+        return moment(dateString, defaultFormat);
     } else if (arguments.length === 2 && typeof arguments[1] === 'boolean') {
         // getFilter('March 1st', true)
-        return moment(dateString).format(defaultFormat).replace(meridiemRegEx, "$1.m.");
+        return moment(dateString, defaultFormat).replace(meridiemRegEx, "$1.m.");
     } else if (arguments.length === 2) {
         // getFilter('March 1st', 'YYYYMMDD')
         var format = arguments[1];
 
-        return moment(dateString).format(format);
+        return moment(dateString, format);
     } else {
         // getFilter('March 1st', 'MM-DD-YYYY', true)
         var format = arguments[1];
 
-        return moment(dateString).format(format).replace(meridiemRegEx, "$1.m.");
+        return moment(dateString, format).replace(meridiemRegEx, "$1.m.");
     }
 }
 
