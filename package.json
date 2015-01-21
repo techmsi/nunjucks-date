@@ -1,6 +1,6 @@
 {
   "name": "nunjucks-date",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Plugin for nunjucks of momentjs format date",
   "main": "index.js",
   "scripts": {
@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/techmsi/nunjucks-date",
   "devDependencies": {
-    "chai": "^1.9.1",
+    "chai": "^1.10.0",
     "codeclimate-test-reporter": "0.0.4",
-    "istanbul": "^0.3.0",
-    "mocha": "^1.21.0",
-    "nunjucks": "^1.0.5"
+    "istanbul": "^0.3.5",
+    "mocha": "^2.0.1",
+    "nunjucks": "^1.1.0"
   },
   "dependencies": {
-    "moment": "^2.7.0"
+    "moment": "^2.8.4"
   }
 }
