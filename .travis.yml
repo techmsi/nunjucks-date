@@ -10,3 +10,4 @@ notifications:
   email: false
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/.bin/codeclimate
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
