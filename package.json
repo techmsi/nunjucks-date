@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://techmsi@github.com/techmsi/nunjucks-date.git"
   },
+  "tonicExampleFilename": "example/example.js"
   "keywords": [
     "nunjucks",
     "date"
