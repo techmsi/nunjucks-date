@@ -52,6 +52,10 @@ env.addFilter('date', require('nunjucks-date'));
 ```
 
 ## Tests
+* Uses `mocha` to run tests & `istanbul` to generate code coverage metrics.
+* Test framework: Mocha.
+* Test coverage: Istanbul is a  tool.
+* Istanbul CLI: `nyc`
 
 ```bash
 npm test
