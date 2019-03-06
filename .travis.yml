@@ -2,10 +2,14 @@ branches:
   only:
     - master
 language: node_js
-node_js:
-  - "0.10"
+node_js :
+ - stable
+install:
+ - npm install
 script:
-  - "npm test --coverage"
+  - "npm test"
+after_success: 
+  - "npm run coverage"
 notifications:
   email: false
 after_script:
