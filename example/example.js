@@ -21,11 +21,14 @@ console.log('Now your filter should be listed here: ', env.filters);
 
 // Example Usage
 var dateStringTest = '1995-12-25';
-var currentDate = env.renderString(` 
+var currentDate = env.renderString(
+  ` 
   Present: {{ present | mySpecialDateFilter}} & Past: {{ past }}
-`, { 
-  present: moment(), 
-  past: moment(dateStringTest).fromNow() 
-});
+`,
+  {
+    present: moment(),
+    past: moment(dateStringTest).fromNow()
+  }
+);
 
 console.log('currentDate', currentDate);

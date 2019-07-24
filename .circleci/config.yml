@@ -1,0 +1,57 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
+      - checkout
+      - run:
+          name: "Create a directory for coverage"
+          command: |
+            mkdir -p coverage
+      - run:
+          name: "Create a directory for test results"
+          command: |
+            mkdir -p test-results
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: "Prepare greenkeeper-lockfile"
+          command: |
+            echo 'export PATH=$(yarn global bin):$PATH' >> $BASH_ENV
+            source $BASH_ENV
+            yarn global add greenkeeper-lockfile@1
+      - run: yarn install
+      - run:
+          name: Install JUnit coverage reporter
+          command: yarn add --dev jest-junit
+      - run:
+          name: Run tests with JUnit as reporter
+          command: jest --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
+      - run: greenkeeper-lockfile-update
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: yarn test
+      - run: greenkeeper-lockfile-upload
+
+      - store_test_results:
+          path: test-results
+      - store_artifacts:
+          path: coverage
