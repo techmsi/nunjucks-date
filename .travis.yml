@@ -1,17 +1,21 @@
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 language: node_js
-node_js :
- - stable
+node_js:
+  - stable
 install:
- - npm install
+  - npm install
 script:
-  - "npm test"
-after_success: 
+  - "npm run test:ci"
+after_success:
   - "npm run coverage"
 notifications:
   email: false
+
+before_script: greenkeeper-lockfile-update
 after_script:
+  - greenkeeper-lockfile-upload
   - cat ./coverage/lcov.info | ./node_modules/.bin/codeclimate
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js

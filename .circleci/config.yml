@@ -1,0 +1,41 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
+      - checkout
+      - run:
+          name: "Create a directory for coverage & test results"
+          command: |
+            mkdir -p coverage/junit
+
+      - run:
+          name: "List directories"
+          command: |
+            ls
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: yarn test:ci
+
+      - store_test_results:
+          path: coverage/junit
+      - store_artifacts:
+          path: coverage
