@@ -6,6 +6,7 @@
   "scripts": {
     "pretest:ci": "echo 'PRETEST' && greenkeeper-lockfile-update",
     "posttest:ci": "echo 'POSTTEST' && greenkeeper-lockfile-upload",
+    "cz": "git-cz",
     "lint": "semistandard --verbose | snazzy",
     "test": "jest --coverage",
     "test:ci": "jest --coverage --ci --runInBand",
@@ -33,6 +34,11 @@
     "url": "https://github.com/techmsi/nunjucks-date/issues"
   },
   "homepage": "https://github.com/techmsi/nunjucks-date",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "devDependencies": {
     "commitizen": "*",
     "coveralls": "*",
