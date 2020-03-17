@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "moment": "*",
-    "nunjucks": "^3.x"
+    "nunjucks": "^3.2.1"
   }
 }
