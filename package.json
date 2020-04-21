@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "commitizen": "*",
-    "coveralls": "*",
+    "coveralls": ">=3.0.12",
     "cz-conventional-changelog": "*",
     "greenkeeper-lockfile": "^1.x",
     "jest": "*",
